@@ -43,7 +43,7 @@ ResultExplanation is_digitally_delicate(uint64_t x) {
 	while (v > 0) {
 		auto lastDigit = v % 10;
 		v /= 10;
-		for (uint i = 0; i < 10; ++i) {
+		for (uint32_t i = 0; i < 10; ++i) {
 			if (i == lastDigit) {
 				continue;
 			}

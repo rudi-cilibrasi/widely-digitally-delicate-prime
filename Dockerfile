@@ -1,6 +1,7 @@
-FROM debian:stretch
+#FROM debian:stretch
+FROM alpine:3.13.4
 
-RUN apt update -y && apt install -y libgmp-dev build-essential g++ git
+RUN apk add gmp-dev git make g++
 
 WORKDIR /usr/src/myapp
 
