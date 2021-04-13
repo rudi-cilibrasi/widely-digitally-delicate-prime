@@ -5,9 +5,7 @@ RUN apk add gmp-dev git make g++
 
 WORKDIR /usr/src/myapp
 
-RUN git clone https://github.com/cslarsen/miller-rabin.git
-
-COPY Makefile main.cpp /usr/src/myapp/
+COPY . /usr/src/myapp
 
 RUN make
 
