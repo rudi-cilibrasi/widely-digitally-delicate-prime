@@ -31,10 +31,16 @@ std::ostream &operator<<(std::ostream &out, const ResultExplanation &re)
 		<< "dd" << re.is_digitally_delicate << "   ww" << re.is_widely_digitally_delicate << " " << re.reason;
 	return out;
 }
+uint64_t trials;
+uint64_t ddp_count;
 
 void runTest(uint64_t x)
 {
 	ResultExplanation re = is_digitally_delicate(x);
+    trials += 1;
+	if (re.is_digitally_delicate) {
+		ddp_count += 1;
+	}
 	//	cout << re << "\n";
 	if (re.is_widely_digitally_delicate)
 	{
@@ -86,12 +92,13 @@ int main(int argc, char **argv)
 		{
 			x += 2;
 			trials += 2;
-			if (trials == 1000000)
+			if (trials == 1000000000)
 			{
 				auto endTime = chrono::steady_clock::now();
 				auto dur = (endTime - startTime);
 				auto rate = 1e9 * trials / dur.count();
 				cout << rate << "\n";
+				cout << "DDP Rate: " << ((float) ddp_count) / ((float) trials) << "\n";
 			}
 		}
 	}
