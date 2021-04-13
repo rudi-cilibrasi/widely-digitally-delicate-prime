@@ -36,7 +36,7 @@ uint64_t ddp_count;
 
 void runTest(uint64_t x)
 {
-	ResultExplanation re = is_digitally_delicate(x);
+	ResultExplanation re = is_widely_digitally_delicate(x);
     trials += 1;
 	if (re.is_digitally_delicate) {
 		ddp_count += 1;
@@ -92,7 +92,7 @@ int main(int argc, char **argv)
 		{
 			x += 2;
 			trials += 2;
-			if (trials == 1000000000)
+			if (trials == 10000000)
 			{
 				auto endTime = chrono::steady_clock::now();
 				auto dur = (endTime - startTime);

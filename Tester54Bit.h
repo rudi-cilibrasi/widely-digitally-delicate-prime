@@ -3,6 +3,6 @@
 
 #include "ResultExplanation.h"
 
-ResultExplanation is_digitally_delicate(uint64_t x);
+ResultExplanation is_widely_digitally_delicate(uint64_t x);
 
 #endif
